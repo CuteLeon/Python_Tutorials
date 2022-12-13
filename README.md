@@ -148,9 +148,9 @@ print(type(x))
 |类型|分类|描述|示例|
 |---|---|---|---|
 |str|文本类型||x = "Hello World"<br>x = str("Hello World")|
-|int|数值类型||x = 29<br>x = int(29)|
-|float|数值类型||x = 29.5<br>x = float(29.5)|
-|complex|数值类型||x = 1j<br>x = complex(1j)|
+|int|数值类型|正负整数，长度不限|x = 29<br>x = int(29)|
+|float|数值类型|正负小数，E表示科学计数法|x = 29.5<br>x = float(29.5)|
+|complex|数值类型|复数，j表示虚部|x = 1j<br>x = complex(1j)|
 |list|序列类型||x = ["apple", "banana", "cherry"]<br>x = list(("apple", "banana", "cherry"))|
 |tuple|序列类型||x = ("apple", "banana", "cherry")<br>x = tuple(("apple", "banana", "cherry"))|
 |range|序列类型||x = range(6)|
@@ -162,3 +162,9 @@ print(type(x))
 |bytearray|二进制类型||x = bytearray(5)|
 |memoryview|二进制类型||x = memoryview(bytes(5))|
 
+## 随机数
+
+```
+import random
+print(random.randrange(1, 10))
+```
