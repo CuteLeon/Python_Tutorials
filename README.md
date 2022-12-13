@@ -134,3 +134,31 @@ print("Python is " + x)
 
 # 数据类型
 
+## 获取数据类型
+
+type() 获取变量的数据类型
+
+```
+x = 10
+print(type(x))
+```
+
+## 设置数据类型
+
+|类型|分类|描述|示例|
+|---|---|---|---|
+|str|文本类型||x = "Hello World"<br>x = str("Hello World")|
+|int|数值类型||x = 29<br>x = int(29)|
+|float|数值类型||x = 29.5<br>x = float(29.5)|
+|complex|数值类型||x = 1j<br>x = complex(1j)|
+|list|序列类型||x = ["apple", "banana", "cherry"]<br>x = list(("apple", "banana", "cherry"))|
+|tuple|序列类型||x = ("apple", "banana", "cherry")<br>x = tuple(("apple", "banana", "cherry"))|
+|range|序列类型||x = range(6)|
+|dict|映射类型||x = {"name" : "Bill", "age" : 63}<br>x = dict(name="Bill", age=36)|
+|set|集合类型||x = {"apple", "banana", "cherry"}<br>x = set(("apple", "banana", "cherry"))|
+|frozenset|集合类型||x = frozenset({"apple", "banana", "cherry"})|
+|bool|布尔类型||x = True<br>x = bool(5)|
+|bytes|二进制类型||x = b"Hello"<br>x = bytes(5)|
+|bytearray|二进制类型||x = bytearray(5)|
+|memoryview|二进制类型||x = memoryview(bytes(5))|
+
