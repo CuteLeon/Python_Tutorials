@@ -990,3 +990,34 @@ for x in range(0, 55, 10):
 	print(x)
 ```
 
+# 函数
+
+- 使用`def`定义函数，并通过函数名后加`()`调用函数。
+- 参数使用`,`隔开
+    - 可以在定义方法的参数时提供默认值
+- 使用`return`语句返回结果
+- 使用 key = value 语法发送关键字参数，顺序不重要
+
+```
+def my_function(name = "[Unknow]"):
+  return "Hello from {}".format(name)
+
+print(my_function())
+print(my_function("World"))
+print(my_function(name = "World"))
+```
+
+## 任意参数
+
+通过`*`允许函数接收一个参数元组，并不关心参数真正的数量
+函数定义不能为空，使用 pass 语句来避免定义无内容的函数的错误
+函数允许递归调用
+
+```
+def my_function(*kids):
+	for x in kids:
+		print(x)
+	print("The youngest child is " + kids[2])
+
+my_function("Phoebe", "Jennifer", "Rory")
+```
