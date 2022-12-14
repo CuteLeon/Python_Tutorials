@@ -497,3 +497,124 @@ price = 49.95
 |~|NOT|反转所有位。|
 |<<|Zero fill left shift|通过从右侧推入零来向左移动，推掉最左边的位。|
 |>>|Signed right shift|通过从左侧推入最左边的位的副本向右移动，推掉最右边的位。|
+
+# 集合类型
+
+- 列表（List）是一种有序和可更改的集合。允许重复的成员。
+- 元组（Tuple）是一种有序且不可更改的集合。允许重复的成员。
+- 集合（Set）是一个无序和无索引的集合。没有重复的成员。
+- 词典（Dictionary）是一个无序，可变和有索引的集合。没有重复的成员。
+
+## 列表 (List)
+
+有序且可修改的集合类型，可以通过下标随机访问。
+```
+mylist = ["A", "B", "C"]
+print(mylist)
+print(mylist[0])
+print(mylist[-1])
+print(mylist[1,3])
+
+mylist[1] = 'b'
+```
+
+### 可以使用 fox...in...: 遍历列表
+```
+for x in mylist:
+	print(x)
+```
+
+### 检查项目是否存在
+```
+if "a" in mylist:
+	print("a in")
+elif "A" in mylist:
+	print("A in")
+else:
+	print("No")
+```
+
+### 检查元素在列表中首次出现的位置
+```
+# index() 方法未找到目标元素时将会抛出异常
+mylist.index("C")
+```
+
+### 获取集合长度
+```
+len(mylist)
+```
+
+### 获取项目在列表中出现的次数
+```
+mylist = [1,1,2,2,2,3,3,4,5,4]
+mylist.count(2)
+```
+
+### 在尾部追加项目
+```
+mylist.append("D")
+```
+
+### 在特定位置插入项目
+```
+mylist.insert(2, "b")
+```
+
+### 删除项目
+```
+# 按值删除
+mylist.remove("A")
+
+# 返回并删除特定位置的元素，默认为-1，即最后一个元素
+mylist.pop()
+mylist.pop(-1)
+mylist.pop(0)
+
+# 清空列表
+mylist.clear()
+```
+
+### del 关键字销毁列表
+```
+# 按索引删除
+del mylist[0]
+# 销毁整个列表，之后不可再访问
+del mylist
+```
+
+### 复制列表
+```
+list1 = [1,2,3]
+# 访问引用
+list2 = list1
+# 深度复制
+list2 = list1.copy()
+list2 = list(list1)
+```
+
+### 合并两个列表
+```
+list1 = [1,2,3]
+list2 = ['a','b','c']
+list3 = list1 + list2
+
+list1.extend(list2)
+list1 = list(list1 + list2)
+list1 = (list1 + list2).copy()
+```
+
+### 反转列表
+```
+list1.reverse()
+```
+
+### 列表排序
+```
+list1.sort()
+```
+
+## 元组 (Tuple)
+
+元组是有序且不可更改的集合，用圆括号编写。
+
