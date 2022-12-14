@@ -1319,3 +1319,42 @@ y = json.loads(x)
 
 print(y["age"])
 ```
+
+# 正则表达式 (RegEx)
+
+RegEx 或正则表达式是形成搜索模式的字符序列。
+RegEx 可用于检查字符串是否包含指定的搜索模式。
+
+```
+import re
+```
+
+## 返回包含所有匹配项的列表
+```
+txt = "3246asdghr2834sdhjf340"
+result = re.findall("\d+", txt)
+```
+
+## 如果字符串中的任意位置存在匹配，则返回 Match 对象
+```
+txt = "3246asdghr2834sdhjf340"
+result = re.search("[a-z]+", txt)
+if result:
+	print(result.span())
+	print(result.start())
+	print(result.end())
+	print(result.group())
+```
+
+## 返回在每次匹配时拆分字符串的列表
+```
+txt = "asd dssdf dsjfhe dfhsdkj ejkfs"
+result = re.split("\s", txt)
+```
+
+## 用字符串替换一个或多个匹配项
+```
+txt = "jdksfks dhjskfh  shdfhls sdfhksdl dsfslkdj"
+result = re.sub("\s+", "+", txt)
+```
+

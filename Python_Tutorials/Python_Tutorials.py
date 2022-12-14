@@ -1,4 +1,12 @@
 import datetime
+import re
+txt = "3246asdghr2834sdhjf340"
+result = re.search("@", txt)
+if result:
+	print(result.span())
+	print(result.start())
+	print(result.end())
+	print(result.group())
 
 x=datetime.datetime.now()
 print(x.weekday())
