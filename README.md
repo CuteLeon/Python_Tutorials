@@ -1119,3 +1119,68 @@ class Student(Person):
 		super().__init__(self, fname, lname)
 		self.graduationyear = year
 ```
+
+# 迭代器
+
+迭代器是一种对象，该对象包含值的可计数数字。
+迭代器是可迭代的对象，这意味着您可以遍历所有值。
+从技术上讲，在 Python 中，迭代器是实现迭代器协议的对象，它包含方法 __iter__() 和 __next__()。
+
+## 迭代器 VS 可迭代对象（Iterable）
+列表、元组、字典和集合都是可迭代的对象。
+它们是可迭代的容器，您可以从中获取迭代器（Iterator）。
+通过 `raise StopIteration` 终止迭代器。
+for循环就是通过迭代器实现的
+
+```
+mytuple = ("apple", "banana", "cherry")
+# iter() 方法获取可迭代对象上的迭代器
+myit = iter(mytuple)
+# next() 方法在迭代器上进行迭代
+print(next(myit))
+```
+
+```
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    if self.a <= 20:
+      x = self.a
+      self.a += 1
+      return x
+    else:
+      raise StopIteration
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+  print(x)
+```
+
+# 作用域
+变量仅在创建区域内可用。这称为作用域。
+
+## 局部作用域
+在函数内部创建的变量属于该函数的局部作用域，并且只能在该函数内部使用。
+
+## 全局作用域
+在 Python 代码主体中创建的变量是全局变量，属于全局作用域。
+全局变量在任何范围（全局和局部）中可用。
+
+## Global 关键字
+global 关键字使变量成为全局变量。
+
+```
+x = 100
+
+def myfunc():
+  global x
+  x = 200
+
+myfunc()
+print(x)
+```
