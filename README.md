@@ -528,12 +528,8 @@ for x in mylist:
 
 ### 检查项目是否存在
 ```
-if "a" in mylist:
-	print("a in")
-elif "A" in mylist:
-	print("A in")
-else:
-	print("No")
+print("a" in mylist)
+print("A" in mylist)
 ```
 
 ### 检查元素在列表中首次出现的位置
@@ -553,13 +549,12 @@ mylist = [1,1,2,2,2,3,3,4,5,4]
 mylist.count(2)
 ```
 
-### 在尾部追加项目
+### 向集合添加项目
 ```
+# 在尾部追加项目
 mylist.append("D")
-```
 
-### 在特定位置插入项目
-```
+# 在特定位置插入项目
 mylist.insert(2, "b")
 ```
 
@@ -573,7 +568,7 @@ mylist.pop()
 mylist.pop(-1)
 mylist.pop(0)
 
-# 清空列表
+# 清空集合
 mylist.clear()
 ```
 
@@ -652,12 +647,8 @@ for x in mytuple:
 
 ### 检查项目是否存在
 ```
-if "a" in mytuple:
-	print("a in")
-elif "A" in mytuple:
-	print("A in")
-else:
-	print("No")
+print("a" in mytuple)
+print("A" in mytuple)
 ```
 
 ### 获取集合长度
@@ -688,4 +679,136 @@ mylist.count(2)
 ```
 # index() 方法未找到目标元素时将会抛出异常
 mylist.index("C")
+```
+
+## 集 (Set)
+
+集合是无序和无索引的集合，用花括号编写。
+
+### 遍历集合
+```
+for x in myset:
+	print(x)
+```
+
+### 检查项目是否存在
+```
+print("a" in myset)
+print("A" in myset)
+```
+
+### 向集合添加项目
+```
+# 添加一个项目
+myset.add("D")
+
+# 批量添加多个项目
+myset.update(["D", "E", "F"])
+```
+
+### 获取集合长度
+```
+len(myset)
+```
+
+### 删除项目
+```
+# remove() 删除不存在的项目将会抛出异常，discard() 不会
+myset.discard("A")
+myset.remove("A")
+
+# 返回并删除一个元素，set是无序的，因此无法确定被删除的项目
+myset.pop()
+
+# 清空集合
+myset.clear()
+```
+
+### del 关键字销毁集合
+```
+# 销毁整个集合，之后不可再访问
+del myset
+```
+
+### 合并两个集合
+```
+set1 = {1,2,3}
+set2 = {'a','b','c'}
+set3 = set1.union(set2)
+```
+
+### 复制集合
+```
+set1 = {1,2,3}
+# 访问引用
+set2 = set1
+# 深度复制
+set2 = set1.copy()
+set2 = set(set1)
+```
+
+### 获取此集合中不存在于另一个集合的项目
+```
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+z = x.difference(y) 
+```
+
+### 删除此集合中也存在于另一个集合的项目
+```
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.difference_update(y) 
+```
+
+### 获取此集合与其它集合的交集
+```
+# 存在于所有集合的项目
+x = {"apple", "banana", "cherry"}
+y1 = {"google", "banana", "apple"}
+y2 = {"cherry", "microsoft", "apple"}
+z = x.intersection(y1, y2)
+```
+
+### 删除此集合中不存在于另一个集合的项目
+```
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.intersection_update(y)
+```
+
+### 判断集合是否存在交集
+```
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "facebook"}
+z = x.isdisjoint(y) 
+```
+
+### 判断集合是否为另一个集合的子集
+```
+x = {"a", "b", "c"}
+y = {"f", "e", "d", "c", "b", "a"}
+z = x.issubset(y) 
+```
+
+### 判断集合是否为另一个集合的超集
+```
+x = {"f", "e", "d", "c", "b", "a"}
+y = {"a", "b", "c"}
+z = x.issuperset(y) 
+```
+
+### 获取两个集合的对称差集
+```
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+# 返回的集合排除了两个集合中同时存在的项
+z = x.symmetric_difference(y)
+```
+
+### 更新集合为两个集合的对称差集
+```
+x = {"apple", "banana", "cherry"}
+y = {"google", "microsoft", "apple"}
+x.symmetric_difference_update(y) 
 ```
