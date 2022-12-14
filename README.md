@@ -1358,3 +1358,31 @@ txt = "jdksfks dhjskfh  shdfhls sdfhksdl dsfslkdj"
 result = re.sub("\s+", "+", txt)
 ```
 
+# PIP
+
+PIP 是 Python 包或模块的包管理器。
+Python 3.4 或更高版本，默认情况下会包含 PIP。
+
+模块是可以包含在项目中的 Python 代码库，包中包含模块所需的所有文件。
+
+```
+// 检查是否安装了 PIP
+pip --version
+
+// 安装一个包
+pip install camelcase
+
+// 卸载一个包
+pip uninstall camelcase
+
+// 列出已安装的包
+pip list
+```
+
+```
+# 使用一个包
+import camelcase
+c = camelcase.CamelCase()
+txt = "hello world"
+print(c.hump(txt))
+```
