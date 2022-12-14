@@ -507,18 +507,20 @@ price = 49.95
 
 ## 列表 (List)
 
-有序且可修改的集合类型，可以通过下标随机访问。
+有序且可修改的集合类型
+
+### 可以通过下标随机访问
 ```
 mylist = ["A", "B", "C"]
 print(mylist)
 print(mylist[0])
 print(mylist[-1])
-print(mylist[1,3])
+print(mylist[1:3])
 
 mylist[1] = 'b'
 ```
 
-### 可以使用 fox...in...: 遍历列表
+### 遍历集合
 ```
 for x in mylist:
 	print(x)
@@ -575,11 +577,11 @@ mylist.pop(0)
 mylist.clear()
 ```
 
-### del 关键字销毁列表
+### del 关键字销毁集合
 ```
 # 按索引删除
 del mylist[0]
-# 销毁整个列表，之后不可再访问
+# 销毁整个集合，之后不可再访问
 del mylist
 ```
 
@@ -593,7 +595,7 @@ list2 = list1.copy()
 list2 = list(list1)
 ```
 
-### 合并两个列表
+### 合并两个集合
 ```
 list1 = [1,2,3]
 list2 = ['a','b','c']
@@ -618,3 +620,72 @@ list1.sort()
 
 元组是有序且不可更改的集合，用圆括号编写。
 
+```
+mytuple = ("A", "B", "C")
+print(mytuple)
+```
+
+### 通过索引访问元组项目
+```
+mytuple[0]
+mytuple[-1]
+mytuple[1:3]
+```
+
+### 更改元组值
+
+创建元组后，您将无法更改其值。元组是不可变的，或者也称为恒定的。
+但是有一种解决方法。您可以将元组转换为列表，更改列表，然后将列表转换回元组。
+
+```
+mytuple = ("apple", "banana", "cherry")
+mylist = list(mytuple)
+mylist[1] = "kiwi"
+mytuple = tuple(mylist)
+```
+
+### 遍历集合
+```
+for x in mytuple:
+	print(x)
+```
+
+### 检查项目是否存在
+```
+if "a" in mytuple:
+	print("a in")
+elif "A" in mytuple:
+	print("A in")
+else:
+	print("No")
+```
+
+### 获取集合长度
+```
+len(mytuple)
+```
+
+### del 关键字销毁集合
+```
+# 销毁整个集合，之后不可再访问
+del mytuple
+```
+
+### 合并两个集合
+```
+tuple1 = (1,2,3)
+tuple2 = ('a','b','c')
+tuple3 = tuple1 + tuple2
+```
+
+### 获取项目在列表中出现的次数
+```
+mylist = [1,1,2,2,2,3,3,4,5,4]
+mylist.count(2)
+```
+
+### 检查元素在列表中首次出现的位置
+```
+# index() 方法未找到目标元素时将会抛出异常
+mylist.index("C")
+```
