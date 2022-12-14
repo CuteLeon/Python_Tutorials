@@ -1,3 +1,8 @@
+import datetime
+
+x=datetime.datetime.now()
+print(x.weekday())
+
 print('''Hello world.
 Hello world.
 Hello world.''');

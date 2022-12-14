@@ -1230,3 +1230,57 @@ import platform
 x = dir(platform)
 print(x)
 ```
+
+# 日期
+Python 中的日期不是其自身的数据类型。
+可以导入名为 datetime 的模块，把日期视作日期对象进行处理。
+
+```
+import datetime
+
+x = datetime.datetime.now()
+x = datetime.datetime(2022, 12, 12)
+print(x)
+```
+
+## 格式化日期
+```
+# 日 14
+datetime.datetime.now().strftime("%d")
+# 周 'Wed'
+datetime.datetime.now().strftime("%a")
+# 周 'Wednesday'
+datetime.datetime.now().strftime("%A")
+# 月 'Dec'
+datetime.datetime.now().strftime("%b")
+# 月 'December'
+datetime.datetime.now().strftime("%B")
+# 月 12
+datetime.datetime.now().strftime("%m")
+# 年 2022
+datetime.datetime.now().strftime("%Y")
+# 小时 24小时制
+datetime.datetime.now().strftime("%H")
+# 小时 12小时制
+datetime.datetime.now().strftime("%I")
+# AM/PM 'PM'
+datetime.datetime.now().strftime("%p")
+# 分钟 50
+datetime.datetime.now().strftime("%M")
+# 秒 45
+datetime.datetime.now().strftime("%S")
+# 微秒 374676
+datetime.datetime.now().strftime("%f")
+# UTC 偏移 ''
+datetime.datetime.now().strftime("%z")
+# 天数 348
+datetime.datetime.now().strftime("%j")
+# 本地格式的日期和时间 'Wed Dec 14 17:49:21 2022'
+datetime.datetime.now().strftime("%c")
+# 本地格式的日期 '12/14/22'
+datetime.datetime.now().strftime("%x")
+# 本地格式的时间 '17:51:00'
+datetime.datetime.now().strftime("%X")
+# '2022-12-14 17:52:21.014443 Wednesday PM'
+datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f %A %p")
+```
