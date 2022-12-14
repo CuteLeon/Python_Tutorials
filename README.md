@@ -1284,3 +1284,38 @@ datetime.datetime.now().strftime("%X")
 # '2022-12-14 17:52:21.014443 Wednesday PM'
 datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f %A %p")
 ```
+
+# JSON
+JSON 是用于存储和交换数据的语法。
+
+## 序列化
+```
+import json
+
+x = {
+  "name": "Bill",
+  "age": 63,
+  "city": "Seatle"
+}
+
+y = json.dumps(x)
+print(y)
+
+# 配置格式化的缩进
+y = json.dumps(x, indent = 4)
+print(y)
+
+# 按成员名称排序
+y = json.dumps(x, indent = 4, sort_keys = True)
+print(y)
+```
+
+## 反序列化
+```
+import json
+
+x =  '{ "name":"Bill", "age":63, "city":"Seatle"}'
+y = json.loads(x)
+
+print(y["age"])
+```
