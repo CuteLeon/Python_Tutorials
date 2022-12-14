@@ -1184,3 +1184,49 @@ def myfunc():
 myfunc()
 print(x)
 ```
+
+# 模块
+模块是包含一组函数的文件，希望在应用程序中引用。
+
+## 创建模块
+如需创建模块，只需将所需代码保存在文件扩展名为 .py 的文件中。
+
+```
+# 保存至 mymodule.py 文件
+def greeting(name):
+  print("Hello, " + name)
+```
+
+## 使用模块
+用 import 语句来使用模块。
+通过模块名称访问内部的成员。
+
+```
+import mymodule
+
+mymodule.greeting("Bill")
+```
+
+也可以使用`from`关键字以仅从模块导入部分成员
+此时不再需要通过模块名称来访问这部分成员。
+```
+from mymodule import person
+print (person["age"])
+```
+
+## 重命名模块
+可以在导入模块时使用 as 关键字创建别名
+```
+import mymodule as mm
+```
+
+## 内建模块
+Python 中有几个内建模块，可以随时导入。
+
+## dir() 函数
+内置函数`dir()`可以列出模块中的所有函数名（或变量名）。
+```
+import platform
+x = dir(platform)
+print(x)
+```
