@@ -941,3 +941,52 @@ x = ('key1', 'key2', 'key3')
 y = 0
 thisdict = dict.fromkeys(x, y)
 ```
+
+# 判断结构 (if...elif...else)
+
+- 使用缩进控制结构
+- 简单的if语句可以写在一行 
+    - if True: print("True")
+	- print("True") if True else print("Flase")
+	- print("True") if True else print("Flase") if False else print("True")
+- 使用 pass 关键字避免无内容的 if 语句的语法错误
+
+# 循环结构 (while, for)
+
+- 使用 break 关键字退出循环
+- 使用 continue 关键词跳过当前迭代，继续循环
+- 允许使用 else 关键字在条件不再成立时运行一次代码块
+    - break 关键中断循环不会触发 else 的语句
+- 使用 pass 关键字避免无内容的 if 语句的语法错误
+
+## while 循环
+
+只要条件为真，就可以执行一组语句。
+
+```
+while True:
+	print("True")
+```
+
+## for 循环
+
+通过使用 for 循环，我们可以为列表、元组、集合中的每个项目等执行一组语句。
+
+### range() 函数
+
+range() 函数返回一个数字序列，默认情况下从 0 开始，并递增 1（默认地），并以指定的数字结束。
+
+```
+# 0~9，共计 10 个数字
+for x in range(10):
+	print(x)
+
+# 3~9，共计 7 个数字
+for x in range(3, 10):
+	print(x)
+
+# 0~50，每次递增10，共计 6 个数字
+for x in range(0, 55, 10):
+	print(x)
+```
+
