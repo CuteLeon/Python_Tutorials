@@ -580,7 +580,7 @@ del mylist[0]
 del mylist
 ```
 
-### 复制列表
+### 复制集合
 ```
 list1 = [1,2,3]
 # 访问引用
@@ -811,4 +811,133 @@ z = x.symmetric_difference(y)
 x = {"apple", "banana", "cherry"}
 y = {"google", "microsoft", "apple"}
 x.symmetric_difference_update(y) 
+```
+
+## 字典 (Dictionary)
+
+字典是一个无序、可变和有索引的集合，用花括号编写，拥有键和值。
+
+```
+mydict =	{
+  "brand": "Porsche",
+  "model": "911",
+  "year": 1963
+}
+```
+
+### 读取项目
+
+```
+x = mydict["brand"]
+x = mydict.get("brand")
+```
+
+### 写入项目
+
+```
+mydict["brand"] = "Leon"
+mydict.update({"brand":"Leon"})
+
+# 如果目标Key不存在，则插入默认值
+mydict.setdefault("Brand", "Default Name")
+```
+
+### 删除项目
+
+~~popitem() 方法删除最后插入的项目（在 3.7 之前的版本中，删除随机项目）~~
+
+```
+mydict.pop("Brand")
+
+# 清空集合
+mydict.clear()
+```
+
+### 遍历集合
+
+```
+# 遍历 key
+for key in mydict:
+	print("{} : {}".format(key, mydict[key]))
+for key in mydict.keys():
+	print("{} : {}".format(key, mydict[key]))
+
+# 遍历 value
+for value in mydict.values():
+	print(value)
+
+# 遍历 key-value pair
+for key, value in mydict.items():
+	print("{} : {}".format(key, value))
+```
+
+### 检查项目是否存在
+```
+print("Brand" in mydict)
+print("brand" in mydict)
+```
+
+### 获取集合长度
+```
+len(mydict)
+```
+
+### del 关键字销毁集合
+```
+# 按Key删除
+del mydict["Brand"]
+# 销毁整个集合，之后不可再访问
+del mydict
+```
+
+### 复制集合
+```
+dict1 =	{
+  "brand": "Porsche",
+  "model": "911",
+  "year": 1963
+}
+# 访问引用
+dict2 = dict1
+# 深度复制
+dict2 = dict1.copy()
+dict2 = dict(dict1)
+```
+
+### 嵌套字典
+
+```
+child1 = {
+  "name" : "Phoebe Adele",
+  "year" : 2002
+}
+child2 = {
+  "name" : "Jennifer Katharine",
+  "year" : 1996
+}
+child3 = {
+  "name" : "Rory John",
+  "year" : 1999
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+```
+
+### 简单初始化
+
+```
+# 请注意，关键字不是字符串字面量
+# 请注意，使用了等号而不是冒号来赋值
+thisdict = dict(brand="Porsche", model="911", year=1963)
+print(thisdict)
+
+# 所有的Key
+x = ('key1', 'key2', 'key3')
+# 所有Key对应的Value的统一默认值
+y = 0
+thisdict = dict.fromkeys(x, y)
 ```
