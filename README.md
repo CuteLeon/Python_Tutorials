@@ -1386,3 +1386,28 @@ c = camelcase.CamelCase()
 txt = "hello world"
 print(c.hump(txt))
 ```
+
+# 异常处理
+
+如果没有引发错误，将会触发 else 关键字定义的代码块
+如果指定了 finally 块，则无论 try 块是否引发错误，都会执行 finally 块。
+	这对于关闭对象并清理资源非常有用。
+
+```
+try:
+  print(x)
+except NameError:
+	print("An NameError occurred")
+except:
+  print("An exception occurred")
+else:
+  print("Everything goes well.")
+finally:
+  print("Finish")
+```
+
+## 抛出异常
+```
+raise Exception("Here raised an exception.")
+raise TypeError("Here raised an exception.")
+```
