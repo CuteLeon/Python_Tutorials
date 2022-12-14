@@ -1035,3 +1035,87 @@ print(x(5, 10))
 # 数组
 
 Python 没有内置对数组的支持，但可以使用 Python 列表代替。
+
+# 类和对象
+
+Python 是一种面向对象的编程语言。
+Python 中的几乎所有东西都是对象，拥有属性和方法。
+类（Class）类似对象构造函数，或者是用于创建对象的“蓝图”。
+类定义不能为空，使用 pass 语句来避免定义无内容的类的错误。
+
+## 创建类
+```
+class MyClass:
+  x = 5
+```
+
+## 创建对象
+```
+p1 = MyClass()
+print(p1.x)
+```
+
+## __init__() 函数
+所有类都有一个名为 __init__() 的构造函数，它始终在启动类时执行。
+```
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("Bill", 63)
+
+print(p1.name)
+print(p1.age)
+```
+
+## 成员函数
+对象也可以包含方法。对象中的方法是属于该对象的函数。
+```
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name)
+
+p1 = Person("Bill", 63)
+p1.myfunc()
+```
+### self 参数
+self 参数是对类的当前实例的引用，用于访问属于该类的变量。
+它不必被命名为 self，但必须是类中任意函数的首个参数。
+
+### 删除对象或其属性
+可以使用 del 关键字删除对象的属性。
+```
+del p1.age
+del p1
+```
+
+# 继承
+
+继承允许我们定义继承另一个类的所有方法和属性的类。
+父类是继承的类，也称为基类。
+子类是从另一个类继承的类，也称为派生类。
+
+```
+# 定义父类
+class Person:
+	def __init__(self, fname, lname):
+		self.firstname = fname
+		self.lastname = lname
+
+	def printname(self):
+		print(self.firstname, self.lastname)
+
+# 定义子类
+class Student(Person):
+	# 子类的函数会覆盖对父类函数的继承
+	# 因此需要通过父类名称或`super()`方法显式调用
+	def __init__(self, fname, lname, year):
+		# Person.__init__(self, fname, lname)
+		super().__init__(self, fname, lname)
+		self.graduationyear = year
+```
