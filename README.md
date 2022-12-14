@@ -1021,3 +1021,15 @@ def my_function(*kids):
 
 my_function("Phoebe", "Jennifer", "Rory")
 ```
+
+# Lambda
+
+lambda 函数是一种小的匿名函数。
+lambda 函数可接受任意数量的参数，但只能有一个表达式。
+
+```
+x = lambda a, b : a + b
+print(x(5, 10))
+```
+
+# 数组
