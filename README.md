@@ -1411,3 +1411,23 @@ finally:
 raise Exception("Here raised an exception.")
 raise TypeError("Here raised an exception.")
 ```
+
+# 命令输入
+
+Python 3.6 使用 input() 方法。
+Python 2.7 使用 raw_input() 方法。
+
+```
+# Python 3.6
+print("Enter your name:")
+x = input()
+print("Hello ", x)
+
+# Python 2.7
+print("Enter your name:")
+x = raw_input()
+print("Hello ", x)
+```
+
+# 文件处理
+
