@@ -1,5 +1,10 @@
 ﻿# Python_Tutorials
 
+> https://www.runoob.com/python3/python3-tutorial.html
+> https://www.w3school.com.cn/python/index.asp
+
+---
+
 Python 是一门流行的编程语言。它由 Guido van Rossum 创建，于 1991 年发布。
 
 - Python 是为可读性设计的，与英语有一些相似之处，并受到数学的影响。
@@ -1515,4 +1520,582 @@ if not os.path.exists("demoDir"):
 	os.mkdir("demoDir")
 if os.path.exists("demoDir"):
 	os.rmdir("demoDir")
+```
+
+# Python 内建函数
+
+## abs()
+返回数字的绝对值
+```
+x = abs(-3)
+```
+
+## all()
+如果 iterable 中的所有项目均为 true，则 all() 函数返回 True，否则返回 False。
+如果该可迭代对象为空，all() 函数也返回 True。
+```
+x = all([True, True, True])
+x = all((0, True, False))
+x = all({0, 1, 0})
+# 注意：在字典上使用时，all() 函数将检查所有键是否为真，而不是值。
+x = all({0 : "Apple", 1 : "Orange"})
+```
+
+## any()
+如果 iterable 中的任何一项为 true，则 any() 函数返回 True，否则返回 False。
+如果可迭代对象为空，则 any() 函数将返回 False。
+```
+x = any([False, True, False])
+x = any((0, 1, False))
+x = any({0, 1, 0})
+# 注意：在字典上使用时，any() 函数将检查是否有任何键为真，而不是值。
+x = any({0 : "Apple", 1 : "Orange"})
+```
+
+## ascii()
+ascii() 函数返回任何对象（字符串，元组，列表等）的可读版本。
+ascii() 函数会将所有非 ascii 字符替换为转义字符。
+```
+x = ascii("My name is Ståle")
+```
+
+## bin()
+bin() 函数返回指定整数的二进制格式的字符串。
+结果将始终以前缀 0b 开头。
+```
+string = bin(2173623)
+```
+
+## bool()
+bool() 函数返回指定对象的布尔值。
+该对象将始终返回 True，除非：
+- 对象为空、比如 []、()、{}
+- 对象为 False
+- 对象为 0
+- 对象为 None
+
+## bytearray()
+bytearray() 函数返回 bytearray 对象。
+它可以将对象转换为 bytearray 对象，或者创建指定大小的空字节数组对象。
+```
+x = bytearray(5)
+```
+
+## bytes()
+bytes() 函数返回字节对象。
+它可以将对象转换为字节对象，或创建指定大小的空字节对象。
+bytes() 和 bytearray() 之间的区别在于，bytes() 返回一个不能修改的对象，而 bytearray() 返回一个可以修改的对象。
+```
+x = bytes(5)
+```
+
+## callable()
+如果指定的对象是可调用的，则 callable() 函数返回 True，否则返回 False。
+```
+def x():
+  a = 7
+l = lambda a: print(a)
+callable(x)
+callable(l)
+
+i = 5
+callable(i)
+```
+
+## char() 与 ord()
+chr() 函数返回代表指定 unicode 的字符。
+```
+x = chr(78)
+```
+
+## compile()
+compile() 函数将指定的源作为代码对象返回，并准备执行。
+- source: 必需。要编译的资源，可以是字符串、字节或 AST 对象。
+- filename: 必需。源所来自的文件的名称。如果源不是来自文件，则可以编写任何内容。
+- mode: 必需。合法值：
+    - eval: 如果源是单个表达式
+    - exec: 如果源是语句块
+    - single: 如果源是单个交互式语句
+```
+a='''i = 0
+while i < 7:
+	print(i)
+	if i == 5: break
+	i+=1
+else:
+	print("Exit")
+print("X")
+'''
+x = compile(a, 'test', 'exec')
+exec(x)
+
+x = compile('print(78)', 'test', 'eval')
+exec(x)
+
+a='''input=input("Please input something:")
+print("Input="+input)
+'''
+x = compile(a, 'test', 'exec')
+exec(x)
+
+a = 'input("Please input something:")'
+x = compile(a, 'test', 'single')
+exec(x)
+```
+## complex()
+complex() 函数通过指定实数和虚数来返回复数。
+```
+x = complex(7, 8)
+```
+
+## delattr()
+delattr() 函数将从指定对象中删除指定属性。
+```
+class Person:
+  name = "Bill"
+  age = 63
+  country = "USA"
+
+delattr(Person, 'age')
+
+p=Person()
+# 将会报错因为age不存在
+# print(p.age)
+```
+
+## dict()
+dict() 函数创建字典。
+字典是无序、可更改和有索引的集合。
+```
+x = dict(name = "Bill", age = 63, country = "USA")
+```
+
+## dir()
+dir() 函数返回指定对象的所有属性和方法，不带值。
+此函数会返回所有属性和方法，甚至是所有对象默认的内置属性。
+```
+class Person:
+  name = "Bill"
+  age = 63
+  country = "USA"
+
+print(dir(Person))
+```
+
+## divmod()
+divmod() 函数返回当参数 1 除以参数 2 时包含商和余数的元组。
+```
+x = divmod(5, 2)
+x, y = divmod(5, 2)
+```
+
+## enumerate()
+enumerate（）函数接受一个集合（例如元组），并将其作为枚举对象返回。
+enumerate（）函数添加一个计数器作为枚举对象的键。
+```
+x = ('apple', 'banana', 'cherry')
+y = enumerate(x)
+```
+
+## eval()
+eval() 函数计算指定的表达式，如果该表达式是合法的 Python 语句，它会被执行。
+```
+x = 'print(78)'
+eval(x)
+```
+
+## exec()
+exec() 函数执行指定的 Python 代码。
+exec() 函数接受大量代码块，这与 eval() 函数仅接受单个表达式不同。
+```
+x = 'name = "Bill"\nprint(name)'
+exec(x)
+```
+
+## filter()
+filter() 函数返回一个迭代器，该迭代器通过一个函数对项目进行过滤以测试该项目是否可被接受。
+```
+class Person:
+	def __init__(self, age, name):
+		self.name = name
+		self.age = age
+	def __str__(self):
+		return "Persion: Name={0}, Age={1}".format(self.name, self.age)
+
+def match(p):
+	return p.age>=18
+ps = [Person(10, "A"),Person(20, "B"),Person(30, "C"),Person(40, "D")]
+ps = filter(match, ps)
+for x in ps:
+	print(x)
+```
+
+## float()
+float() 把指定值转换为浮点数。
+```
+x = float(5)
+```
+
+## format()
+format() 函数把指定值格式化为指定格式。
+```
+x = format(0.5, '%')
+```
+
+## frozenset()
+frozenset() 函数返回一个不可更改的 Frozenset 对象（类似于 set 对象，仅不可更改）。
+```
+mylist = ['apple', 'banana', 'cherry']
+x = frozenset(mylist)
+```
+
+## getattr()
+getattr() 函数从指定的对象返回指定属性的值。
+```
+class Person:
+  name = "Bill"
+  age = 63
+  country = "USA"
+
+x = getattr(Person, 'age')
+x = getattr(Person, 'age', 'default value')
+```
+
+## globals()
+globals() 函数将全局符号表作为字典返回。
+符号表包含有关当前程序的必要信息。
+```
+x = globals()
+print(x)
+# 获取当前文件名称
+print(x["__file__"])
+```
+
+## hasattr()
+如果指定的对象拥有指定的属性，则 hasattr() 函数将返回 True，否则返回 False。
+```
+class Person:
+  name = "Bill"
+  age = 63
+  country = "USA"
+
+x = hasattr(Person, 'age')
+```
+
+## hash()
+返回指定对象的哈希值。
+```
+x = hash("Hello")
+```
+
+## hex()
+hex() 函数将指定的数字转换为十六进制值。
+返回的字符串始终以前缀 0x 开头。
+```
+x = hex(255)
+```
+
+## id()
+id() 函数返回指定对象的唯一 id。
+Python 中的所有对象都有其自己的唯一 id。
+id 在创建时已分配给对象，每次赋值都将更新。
+id 是对象的内存地址，并且在每次运行程序时都不同。
+（除了某些具有恒定唯一 id 的对象，比如 -5 到 256 之间的整数）
+```
+x = ('apple', 'banana', 'cherry')
+y = id(x)
+```
+
+## input()
+input() 函数允许用户输入。
+```
+x = input()
+print(x)
+```
+
+## int()
+int() 函数把指定值转换为整数。
+```
+x = int(3.14)
+```
+
+## isinstance()
+如果指定的对象拥有指定的类型，则 isinstance() 函数返回 True，否则返回 False。
+如果 type 参数是元组，则如果对象是元组中的类型之一，那么此函数将返回 True。
+```
+x = isinstance(10, int)
+```
+
+## issubclass()
+issubclass() 如果指定对象是指定对象的子类，则 issubclass() 函数将返回 True，否则返回 False。
+```
+class myAge:
+  age = 63
+
+class myObj(myAge):
+  name = "Bill"
+  age = myAge
+
+x = issubclass(myObj, myAge)
+```
+
+## iter()
+iter() 返回迭代器对象。
+```
+x = iter(["apple", "banana", "cherry"])
+print(next(x))
+print(next(x))
+print(next(x))
+```
+
+## len()
+len() 函数返回对象中项目的数量。
+当对象是字符串时，len() 函数返回字符串中的字符数。
+```
+mylist = ["apple", "banana", "cherry"]
+x = len(mylist)
+```
+
+## list()
+list() 函数创建列表对象。
+列表对象是有序可更改的集合。
+```
+x = list(('apple', 'banana', 'cherry'))
+```
+
+## locals()
+locals() 函数将局部符号表作为字典返回。
+符号表包含有关当前程序的必要信息。
+```
+x = locals()
+print(x)
+```
+
+## map()
+map() 函数为 iterable 中的每个项目执行指定的函数。项目作为参数发送到函数。
+```
+def myfunc(n):
+  return len(n)
+
+x = map(myfunc, ('apple', 'banana', 'cherry'))
+```
+
+## max()
+max() 函数返回有最大值的项目，或者 iterable 中有最大值的项目。
+如果值是字符串，则按字母顺序进行比较。
+```
+x = max(5, 10)
+```
+
+## memoryview()
+memoryview() 函数从指定对象返回内存视图对象。
+```
+x = memoryview(b"Hello")
+print(x)
+# 返回首个字符的 Unicode
+print(x[0])
+# 返回第二个字符的 Unicode
+print(x[1])
+```
+
+## min()
+min() 函数返回值最小的项目，或 iterable 中值最小的项目。
+如果值是字符串，则按字母顺序进行比较。
+```
+x = min(5, 10)
+```
+
+## next()
+next() 函数返回迭代器中的下一项。
+可以添加默认的返回值，以在迭代结束时返回。
+```
+mylist = iter(["apple", "banana", "cherry"])
+x = next(mylist)
+print(x)
+x = next(mylist)
+print(x)
+x = next(mylist)
+print(x)
+```
+
+## object()
+object() 函数返回一个空对象。
+您不能向这个对象添加新的属性或方法。
+这个对象是所有类的基础，它拥有所有类默认的内置属性和方法。
+```
+x = object()
+```
+
+## oct()
+oct() 函数把整数转换为八进制字符串。
+Python 中的八进制字符串以 0o 为前缀。
+```
+x = oct(15)
+```
+
+## open()
+open() 函数打开一个文件，并将其作为文件对象返回。
+
+## ord()
+ord() 函数返回表示指定字符 unicode 编码的数字。
+```
+x = ord("E")
+```
+
+## pow()
+pow() 函数 x 的 y 次幂 (xy) 的值。
+如果提供第三个参数，则返回 x 的 y 次幂后，取余 z。
+```
+x = pow(5, 3)
+```
+
+## print()
+print() 函数将指定的消息打印到屏幕或其他标准输出设备上。
+该消息可以是字符串，也可以是任何其他对象，该对象在写到屏幕之前会被转换为字符串。
+```
+print("Hello World")
+```
+
+## range()
+range() 函数返回数字序列，默认从 0 开始，默认以 1 递增，并以指定的数字结束。
+```
+x = range(6)
+for n in x:
+  print(n)
+```
+
+## repr()
+返回对象的可读版本。
+```
+dict = {'runoob': 'runoob.com', 'google': 'google.com'};
+# "{'google': 'google.com', 'runoob': 'runoob.com'}"
+repr(dict)
+```
+
+## reversed()
+reversed() 函数返回反向的迭代器对象。
+```
+alph = ["a", "b", "c", "d"]
+ralph = reversed(alph)
+for x in ralph:
+  print(x)
+```
+
+## round()
+round() 函数返回一个浮点数，该浮点数是指定数字的舍入版本，并带有指定的小数位数。
+默认的小数位数为 0，表示该函数将返回最接近的整数。
+```
+x = round(3.1415926, 2)
+print(x)
+```
+
+## set()
+set() 函数创建集合对象。
+集合列表中的项目是无序的，因此它将以随机顺序出现。
+```
+x = set(('apple', 'banana', 'cherry'))
+```
+
+## setattr()
+setattr() 函数指定对象的指定属性的值。
+```
+class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+setattr(Person, 'age', 40)
+```
+
+## slice()
+slice() 函数返回 slice 对象（切片）。
+slice 对象用于指定如何对序列进行裁切。
+可以指定在哪里开始裁切以及在哪里结束裁切。
+还可以指定步进，例如只切每隔一个项目。
+```
+a = ("a", "b", "c", "d", "e", "f", "g", "h")
+x = slice(2)
+x = slice(2, 8, 3)
+print(a[x])
+```
+
+## sorted()
+sorted() 函数返回指定的可迭代对象的排序列表。
+可以指定升序或降序。字符串按字母顺序排序，数字按数字排序。
+```
+a = ("b", "g", "a", "d", "f", "c", "h", "e")
+x = sorted(a)
+print(x)
+```
+
+## str()
+str() 函数将指定的值转换为字符串。
+```
+x = str(3.14)
+```
+
+## sum()
+sum() 函数返回一个数字，即 iterable 中所有项目的总和。
+```
+a = (1, 2, 3, 4, 5)
+x = sum(a)
+```
+
+## super()
+super() 函数用于提供对父类或同胞类的方法和属性的访问。
+super() 函数返回代表父类的对象。
+```
+class Parent:
+  def __init__(self, txt):
+    self.message
+
+  def printmessage(self):
+    print(self.message)
+
+class Child(Parent):
+  def __init__(self, txt):
+    super().__init__(txt)
+
+x = Child("Hello, and welcome!")
+x.printmessage()
+```
+
+## tuple()
+tuple() 函数创建元组对象。
+注释：您不能更改或删除元组中的项目。
+```
+x = tuple(('apple', 'banana', 'cherry'))
+```
+
+## type()
+type() 函数返回指定对象的类型。
+```
+a = ('apple', 'banana', 'cherry')
+b = "Hello World"
+c = 55
+
+x = type(a)
+y = type(b)
+z = type(c)
+```
+
+## vars()
+vars() 函数返回对象的 __dic__ 属性。
+__dict__ 属性是包含对象的可变属性的字典。
+```
+class Person:
+  name = "Bill"
+  age = 19
+  country = "USA"
+
+x = vars(Person)
+```
+
+## zip()
+zip() 函数返回 zip 对象，它是元组的迭代器，其中每个传递的迭代器中的第一项配对在一起，然后每个传递的迭代器中的第二项配对在一起，依此类推。
+如果传递的迭代器具有不同的长度，则项目数最少的迭代器将决定新迭代器的长度。
+```
+a = ("Bill", "Steve", "Elon")
+b = ("Gates", "Jobs", "Musk")
+x = zip(a, b)
 ```

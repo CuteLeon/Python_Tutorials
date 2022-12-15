@@ -1,5 +1,6 @@
 import datetime
 import re
+import json
 import os
 
 # 创建或覆写文件
@@ -68,3 +69,54 @@ while i < 7:
 else:
 	print("Exit")
 print("X")
+
+a='''i = 0
+while i < 7:
+	print(i)
+	if i == 5: break
+	i+=1
+else:
+	print("Exit")
+print("X")
+'''
+x = compile(a, 'test', 'exec')
+exec(x)
+
+x = compile('print(78)', 'test', 'eval')
+exec(x)
+
+a='''input=input("Please input something:")
+print("Input="+input)
+'''
+x = compile(a, 'test', 'exec')
+# exec(x)
+
+a = 'input("Please input something:")'
+x = compile(a, 'test', 'single')
+# exec(x)
+
+class Person:
+	def __init__(self, age, name):
+		self.name = name
+		self.age = age
+	def __str__(self):
+		return "Persion: Name={0}, Age={1}".format(self.name, self.age)
+
+'''
+delattr(Person, 'age')
+p=Person()
+print(p.age)
+'''
+
+def match(p):
+	return p.age>=18
+ps = [Person(10, "A"),Person(20, "B"),Person(30, "C"),Person(40, "D")]
+ps = filter(match, ps)
+for x in ps:
+	print(x)
+
+x = globals()
+print(x["__file__"])
+
+x = locals()
+print(x["__file__"])
