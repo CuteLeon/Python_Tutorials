@@ -2099,3 +2099,20 @@ a = ("Bill", "Steve", "Elon")
 b = ("Gates", "Jobs", "Musk")
 x = zip(a, b)
 ```
+
+# 网络请求
+要求：`pip install requests`
+
+- delete(url, args)
+- get(url, params, args)
+- head(url, args)
+- patch(url, data, args)
+- post(url, data, json, args)
+- put(url, data, args)
+- request(method, url, args)
+
+```
+import requests
+x = requests.get('https://w3school.com.cn/python/demopage.htm')
+print(x.text)
+```
