@@ -5,14 +5,14 @@ import re
 import json
 import os
 
-# ´´½¨»ò¸²Ð´ÎÄ¼þ
+# åˆ›å»ºæˆ–è¦†å†™æ–‡ä»¶
 f = open(r".\demofile.txt", "w")
 f.writelines([
 	"Now the file has first line of content.\n",
 	"Now the file has second line of content.\n"])
 f.close()
 
-# ´´½¨»ò×·¼ÓÄÚÈÝµ½ÎÄ¼þ
+# åˆ›å»ºæˆ–è¿½åŠ å†…å®¹åˆ°æ–‡ä»¶
 f = open(r".\demofile.txt", "a")
 f.write("Now the file has more content!")
 f.close()
