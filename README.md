@@ -2142,6 +2142,20 @@ b = ("Gates", "Jobs", "Musk")
 x = zip(a, b)
 ```
 
+## __import__()
+__import__() 函数用于动态加载类和函数 。
+如果一个模块经常变化就可以使用 __import__() 来动态载入。
+
+## reload()
+reload() 用于重新载入之前载入的模块。
+```
+import importlib
+import sys
+
+# 重新装载 sys 模块
+importlib.reload(sys)
+```
+
 # 网络请求
 要求：`pip install requests`
 
