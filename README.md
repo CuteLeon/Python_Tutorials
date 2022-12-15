@@ -44,6 +44,15 @@ exit()
 - Python 使用缩进来指示代码块
 - 至少使用一个空格来表明缩进
 - 同一代码块的语句必须使用相同的空格数量
+- 如果语句过长可以使用反斜杠`\`换行，[]、{}、() 中的语句不需要使用反斜杠即可换行
+- 同一行也可以写多行语句，但要使用分号`;`来分割每个语句，同一行的所有语句继承当前行的缩进级别
+
+```
+total = itemOne + \
+		itemTwo + \
+		itemThree
+for x in range(5): print(x); print("-");
+```
 
 ```
 if 5 > 2:
@@ -192,6 +201,7 @@ print(random.randrange(1, 10))
 - 使用三个引号表示多行字符串
 - 本质是字节数组
 - 单个字符就是长度为1的字符串
+- `r"Hello\\\World"`的`r`会避免`\`的转义
 
 ### 裁切
 
@@ -205,6 +215,8 @@ a[1:5]
 # orl
 # 负号表示从尾部倒数
 a[-5:-2]
+# 步长为-1，即倒叙输出文本
+a[:：-1]
 ```
 
 ### 字符串长度
@@ -945,6 +957,20 @@ x = ('key1', 'key2', 'key3')
 # 所有Key对应的Value的统一默认值
 y = 0
 thisdict = dict.fromkeys(x, y)
+```
+
+# 集合推导式
+```
+# [表达式 for 变量 in 列表]
+names = ['Bob','Tom','alice','Jerry','Wendy','Smith']
+new_names = [name.upper()for name in names if len(name)>3]
+# 将name作为key，长度作为value，生成Dictionary
+newdict = {name:len(name) for name in names}
+# 将名字长度乘以2生成set
+newset = {len(name) * 2 for name in names}
+
+# [表达式 for 变量 in 列表 if 条件]
+multiples = [i for i in range(30) if i % 3 == 0]
 ```
 
 # 判断结构 (if...elif...else)
@@ -1952,8 +1978,10 @@ x = pow(5, 3)
 ## print()
 print() 函数将指定的消息打印到屏幕或其他标准输出设备上。
 该消息可以是字符串，也可以是任何其他对象，该对象在写到屏幕之前会被转换为字符串。
+print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end=""：
 ```
 print("Hello World")
+print("Hello, World", end="")
 ```
 
 ## range()

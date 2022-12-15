@@ -125,3 +125,6 @@ print(x["__file__"])
 
 x = requests.get('https://w3school.com.cn/python/demopage.htm')
 print(x.text)
+
+for x in range(5):
+	print(x);print("-");
