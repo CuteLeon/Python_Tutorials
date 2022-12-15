@@ -1,4 +1,5 @@
 import datetime
+import sys
 # pip install requests
 import requests
 import re
@@ -17,6 +18,12 @@ f = open(r".\demofile.txt", "a")
 f.write("Now the file has more content!")
 f.close()
 
+# with 关键字自动清理
+with open("demofile.txt") as f:
+    for line in f.readlines():
+        print(line, end="")
+print()
+
 f = open(r".\demofile.txt")
 f = open(".\\demofile.txt")
 f.seek(0)
@@ -27,7 +34,7 @@ f.seek(0)
 l = f.readlines()
 f.seek(0)
 for l in f:
-	print(l)
+	print(l, end="")
 f.close()
 
 if os.path.exists(r".\demofile.txt"):

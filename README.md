@@ -1102,6 +1102,8 @@ print(p1.age)
 
 ## 成员函数
 对象也可以包含方法。对象中的方法是属于该对象的函数。
+以两个下划线`__`开头的方法为私有方法，不能在类的外部被使用或直接访问。在类内部以`self.__privateMethod()`访问。变量同理
+
 ```
 class Person:
   def __init__(self, name, age):
@@ -1114,11 +1116,11 @@ class Person:
 p1 = Person("Bill", 63)
 p1.myfunc()
 ```
-### self 参数
+## self 参数
 self 参数是对类的当前实例的引用，用于访问属于该类的变量。
 它不必被命名为 self，但必须是类中任意函数的首个参数。
 
-### 删除对象或其属性
+## 删除对象或其属性
 可以使用 del 关键字删除对象的属性。
 ```
 del p1.age
@@ -1130,6 +1132,7 @@ del p1
 继承允许我们定义继承另一个类的所有方法和属性的类。
 父类是继承的类，也称为基类。
 子类是从另一个类继承的类，也称为派生类。
+`class ChildClass(SuperClass1, SuperClass2，SuperClass3)` 多继承时，重复实现的方法按子类和父类在改行的排序优先选择
 
 ```
 # 定义父类
@@ -1234,6 +1237,8 @@ def greeting(name):
 
 ```
 import mymodule
+# from mymodule import *
+# from mymodule import class1, class2, class3
 
 mymodule.greeting("Bill")
 ```
@@ -1427,8 +1432,8 @@ print(c.hump(txt))
 ```
 try:
   print(x)
-except NameError:
-	print("An NameError occurred")
+except NameError as err:
+	print("An NameError occurred: {}".format(err))
 except:
   print("An exception occurred")
 else:
@@ -1441,6 +1446,15 @@ finally:
 ```
 raise Exception("Here raised an exception.")
 raise TypeError("Here raised an exception.")
+```
+
+# 清理行为
+一些对象定义了标准的清理行为，无论系统是否成功的使用了它，一旦不需要它了，那么这个标准的清理行为就会执行。
+关键词 with 语句就可以保证诸如文件之类的对象在使用完之后一定会正确的执行他的清理方法。
+```
+with open("myfile.txt") as f:
+    for line in f.readlines():
+        print(line)
 ```
 
 # 命令输入
@@ -2144,3 +2158,5 @@ import requests
 x = requests.get('https://w3school.com.cn/python/demopage.htm')
 print(x.text)
 ```
+
+# 标准库
