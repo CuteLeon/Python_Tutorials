@@ -1431,3 +1431,88 @@ print("Hello ", x)
 
 # 文件处理
 
+## 打开文件
+
+```
+f = open("demofile.txt")
+f = open("demofile.txt", "rt")
+```
+
+### 模式
+
+|模式|名称|说明|
+|---|---|---|
+|r|读取|默认值。打开文件进行读取，如果文件不存在则报错。|
+|a|追加|打开文件以追加内容，如果不存在则创建该文件。|
+|w|写入|打开文件进行写入，如果文件不存在则创建该文件。|
+|x|创建|创建指定文件，如果文件存在则返回错误。|
+|t|文本|默认值。以文本模式打开文件。|
+|b|二进制|以二进制模式打开文件。|
+
+## 读取文件
+
+```
+# `r` 用于避免`\`被视作转义字符
+f = open(r"D:\test.txt")
+f = open("D:\\test.txt")
+f = open("demofile.txt", "rt")
+
+# 默认读取文件的全部内容
+print(f.read())
+
+f.seek(0)
+# 通过参数控制读取的字符数
+print(f.read(10))
+
+f.seek(0)
+# 读取一行
+print(f.readline())
+
+f.seek(0)
+# 逐行读取文件所有内容
+for x in f:
+  print(x)
+
+f.close()
+```
+
+## 创建/写入文件
+
+```
+# 创建或覆写文件
+f = open(r".\demofile.txt", "w")
+f.writelines([
+	"Now the file has first line of content.\n",
+	"Now the file has second line of content.\n"])
+f.close()
+
+# 创建或追加内容到文件
+f = open(r".\demofile.txt", "a")
+f.write("Now the file has more content!")
+f.close()
+```
+
+## 检查文件是否存在
+
+```
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+```
+
+## 删除文件
+
+```
+import os
+if os.path.exists("demofile.txt"):
+  os.remove("demofile.txt")
+```
+
+## 文件夹
+
+```
+if not os.path.exists("demoDir"):
+	os.mkdir("demoDir")
+if os.path.exists("demoDir"):
+	os.rmdir("demoDir")
+```
