@@ -1025,8 +1025,11 @@ for x in range(0, 55, 10):
 
 - 使用`def`定义函数，并通过函数名后加`()`调用函数。
 - 参数使用`,`隔开
-    - 可以在定义方法的参数时提供默认值
+    - 可以在定义方法时用=为参数提供默认值
+- 参数后跟:和类型名称
+    - 可以使用Union[,] 为一个参数指定可接受的多种类型
 - 使用`return`语句返回结果
+- 使用->符号声明函数的返回值类型
 - 使用 key = value 语法发送关键字参数，顺序不重要
 
 ```
@@ -1036,6 +1039,13 @@ def my_function(name = "[Unknow]"):
 print(my_function())
 print(my_function("World"))
 print(my_function(name = "World"))
+
+def publish(
+    self, 
+    message: Union[bytearray, str, OutboundMessage], 
+    destination: Topic,
+    additional_message_properties: Dict[str, Union[str, int, float, bool, dict, list, tuple, None, bytearray]] = None)
+    -> PublishResult:
 ```
 
 ## 任意参数
