@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{C93AC155-7FD6-429C-BE0D-0BD339272252}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		PyQt.md = PyQt.md
 	EndProjectSection
 EndProject
 Global

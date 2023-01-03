@@ -2284,3 +2284,7 @@ for t in threads:
     t.join()
 print ("退出主线程")
 ```
+
+# GUI PyQt
+TKinter 虽然为内置GUI库，但是上限较低且风评较差，直接采用PyQt
+[PyQt](.\PyQt.md)
