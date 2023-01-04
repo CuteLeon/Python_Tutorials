@@ -1465,6 +1465,10 @@ pip install PyQt6 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ### 永久
+命令行
+```
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 修改文件 C:\Users\{username}\AppData\Roaming\pip\pip.ini
 ```
