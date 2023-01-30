@@ -2314,44 +2314,60 @@ print ("退出主线程")
 ```
 
 ```
+from sqlite3 import Error
 import threading
 import time
 import datetime
+import random
+
 
 class Resource:
     def __init__(self) -> None:
         self.lock = threading.Lock()
 
-    def Lock(self, source:str):
+    def Lock(self, source: str):
         self.lock.acquire()
         Print(f"Resource Locked by [{source}]...")
 
-    def Unlock(self, source:str):
+    def Unlock(self, source: str):
         Print(f"Resource Unlocked by [{source}].")
-        self.lock.release()
+        if self.lock.locked():
+            self.lock.release()
 
 
 resource = Resource()
 
 
-def Print(log:str):
+def Print(log: str):
     print(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]} : {log}")
+
 
 def myFunction1():
     while True:
-        Print(f"[Funtion - 1] trying yo fetch resource...")
-        resource.Lock("Funtion1")
-        time.sleep(1)
-        resource.Unlock("Funtion1")
-        time.sleep(1)
+        try:
+            Print(f"[Funtion - 1] trying to fetch resource...")
+            resource.Lock("Funtion - 1")
+            time.sleep(1)
+            resource.Unlock("Funtion - 1")
+        except Exception as error:
+            Print(f"[Error] {error}")
+        finally:
+            resource.Unlock("Funtion - 2")
+            time.sleep(1)
 
 
 def myFunction2():
     while True:
-        Print(f"[Funtion - 2] trying yo fetch resource...")
-        resource.Lock("Funtion - 2")
-        time.sleep(0.2)
-        resource.Unlock("Funtion - 2")
+        Print(f"[Funtion - 2] trying to fetch resource...")
+        try:
+            resource.Lock("Funtion - 2")
+            if random.random() < 0.3:
+                raise Error(f"error during resource locked.")
+            time.sleep(0.2)
+        except Exception as error:
+            Print(f"[Error] {error}")
+        finally:
+            resource.Unlock("Funtion - 2")
 
 
 thread_1 = threading.Thread(target=myFunction1)
