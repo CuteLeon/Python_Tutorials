@@ -1347,6 +1347,7 @@ datetime.datetime.now().strftime("%x")
 datetime.datetime.now().strftime("%X")
 # '2022-12-14 17:52:21.014443 Wednesday PM'
 datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f %A %p")
+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
 ```
 
 # JSON
