@@ -2348,11 +2348,10 @@ def myFunction1():
             Print(f"[Funtion - 1] trying to fetch resource...")
             resource.Lock("Funtion - 1")
             time.sleep(1)
-            resource.Unlock("Funtion - 1")
         except Exception as error:
             Print(f"[Error] {error}")
         finally:
-            resource.Unlock("Funtion - 2")
+            resource.Unlock("Funtion - 1")
             time.sleep(1)
 
 
