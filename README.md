@@ -2313,6 +2313,53 @@ for t in threads:
 print ("退出主线程")
 ```
 
+```
+import threading
+import time
+import datetime
+
+class Resource:
+    def __init__(self) -> None:
+        self.lock = threading.Lock()
+
+    def Lock(self, source:str):
+        self.lock.acquire()
+        Print(f"Resource Locked by [{source}]...")
+
+    def Unlock(self, source:str):
+        Print(f"Resource Unlocked by [{source}].")
+        self.lock.release()
+
+
+resource = Resource()
+
+
+def Print(log:str):
+    print(f"{datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]} : {log}")
+
+def myFunction1():
+    while True:
+        Print(f"[Funtion - 1] trying yo fetch resource...")
+        resource.Lock("Funtion1")
+        time.sleep(1)
+        resource.Unlock("Funtion1")
+        time.sleep(1)
+
+
+def myFunction2():
+    while True:
+        Print(f"[Funtion - 2] trying yo fetch resource...")
+        resource.Lock("Funtion - 2")
+        time.sleep(0.2)
+        resource.Unlock("Funtion - 2")
+
+
+thread_1 = threading.Thread(target=myFunction1)
+thread_2 = threading.Thread(target=myFunction2)
+thread_1.start()
+thread_2.start()
+```
+
 # GUI PyQt
 TKinter 虽然为内置GUI库，但是上限较低且风评较差，直接采用PyQt
 [PyQt](.\PyQt.md)
